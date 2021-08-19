@@ -1,1 +1,1 @@
-module "github.com/0xc0d/fold"
+module "github.com/0xc0d/go-fold"
