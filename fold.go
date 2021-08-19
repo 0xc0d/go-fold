@@ -92,5 +92,5 @@ func (f *foldReader) Read(p []byte) (n int, err error) {
 		f.lineLen = 0
 	}
 
-	return n, err
+	return n, nil
 }
