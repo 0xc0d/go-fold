@@ -15,6 +15,11 @@ type foldReader struct {
 	hamper []byte
 }
 
+// NewReader returns an io.Reader which wraps r.
+// It streams the content of given r with maximum 
+// line size of width.
+//
+// width must be non-zero otherwise it panics.
 func NewReader(r io.Reader, width int) io.Reader {
 	if width == 0 {
 		panic("width must be non-zero")
@@ -26,14 +31,19 @@ func NewReader(r io.Reader, width int) io.Reader {
 	}
 }
 
+// NewReaderBytes returns an folded io.Reader from a
+// slice of bytes.
 func NewReaderBytes(b []byte, width int) io.Reader {
 	return NewReader(bytes.NewReader(b), width)
 }
 
+// NewReaderString returns an folded io.Reader from a
+// sring.
 func NewReaderString(s string, width int) io.Reader {
 	return NewReader(strings.NewReader(s), width)
 }
 
+// Read implements io.Reader for foldReader
 func (f *foldReader) Read(p []byte) (n int, err error) {
 	hn := copy(p, f.hamper)
 	f.hamper = f.hamper[hn:]
