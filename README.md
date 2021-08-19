@@ -1,6 +1,10 @@
 # go-fold
 A Go implementation of fold command (unix) around io.Reader.
 
+# Why
+Folding a string is not a hassle but having a stream in io.Reader could be a little bit challenging.
+The idea for this fold reader started when we encountered with an issue in streaming data to a socket
+with a protocol like SMTP. The maximum line length for SMTP mail is 990 characters.
 
 # Install
 ```
