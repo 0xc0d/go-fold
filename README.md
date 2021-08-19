@@ -3,7 +3,9 @@ A Go implementation of fold command (unix) around io.Reader.
 
 
 # Install
-`go get github.com/0xc0d/go-fold`
+```
+go get github.com/0xc0d/go-fold
+```
 
 # Use
 ```go
@@ -19,9 +21,15 @@ import (
 
 func main() {
   s := strings.Repeat("0", 20)
-  r := strins.NewReader(s)
-  foldReader := fold.NewReader(r)
+  r := strings.NewReader(s)
+  foldReader := fold.NewReader(r, 7)
   
   io.Copy(os.Stdout, foldReader)
 }
+
+// Output:
+// 0000000
+// 0000000
+// 000000
+
 ```
