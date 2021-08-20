@@ -2,10 +2,11 @@ package fold_test
 
 import (
 	"bytes"
-	"fold"
 	"io"
 	"strings"
 	"testing"
+	
+	"github.com/0xc0d/go-fold"
 )
 
 func TestFoldReader(t *testing.T) {
