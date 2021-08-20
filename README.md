@@ -1,5 +1,5 @@
 # go-fold
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/0xc0d/go-fold)](https://pkg.go.dev/github.com/0xc0d/go-fold@v1.0.1?tab=doc)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/0xc0d/go-fold)](https://pkg.go.dev/github.com/0xc0d/go-fold?tab=doc)
 
 A Go implementation of fold command (unix) around io.Reader.
 
