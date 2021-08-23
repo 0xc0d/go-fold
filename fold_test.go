@@ -58,6 +58,14 @@ func TestFoldReader(t *testing.T) {
 			wantPanic: false,
 		},
 		{
+			name:      "CRLF",
+			input:     strings.NewReader(strings.Repeat("00000\r\n", 4)),
+			width:     5,
+			want:      bytes.Repeat([]byte("00000\r\n"), 4),
+			wantErr:   false,
+			wantPanic: false,
+		},
+		{
 			name:      "panic width 0",
 			input:     strings.NewReader("whatever"),
 			width:     0,
