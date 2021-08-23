@@ -26,10 +26,9 @@ func TestFoldReader(t *testing.T) {
 			wantErr: false,
 		},
 		{
-			name: "big lines",
-			input: strings.NewReader(
-				strings.Repeat("12345", 2) +
-					"1\n" + strings.Repeat("12345", 2)),
+		{
+			name:    "big lines",
+			input:   strings.NewReader(strings.Repeat("12345", 2) + "1\n" + strings.Repeat("12345", 2)),
 			width:   4,
 			want:    []byte("1234\n5123\n451\n1234\n5123\n45"),
 			wantErr: false,
@@ -53,7 +52,7 @@ func TestFoldReader(t *testing.T) {
 			name:      "many new lines",
 			input:     strings.NewReader(strings.Repeat("\n", 10)),
 			width:     5,
-			want:      []byte("\n\n\n\n\n\n\n\n\n\n"),
+			want:      bytes.Repeat([]byte{'\n'}, 10),
 			wantErr:   false,
 			wantPanic: false,
 		},
