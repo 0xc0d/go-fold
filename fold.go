@@ -62,7 +62,7 @@ func (f *foldReader) Read(p []byte) (n int, err error) {
 
 	var s int
 	for bi := 0; bi < n; {
-		bi = bytes.IndexByte(p[s:n], '\n')
+		bi = bytes.IndexAny(p[s:n], "\r\n")
 		e := bi
 		if e == -1 {
 			e = n - s
