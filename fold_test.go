@@ -26,7 +26,6 @@ func TestFoldReader(t *testing.T) {
 			wantErr: false,
 		},
 		{
-		{
 			name:    "big lines",
 			input:   strings.NewReader(strings.Repeat("12345", 2) + "1\n" + strings.Repeat("12345", 2)),
 			width:   4,
